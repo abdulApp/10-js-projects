@@ -1,8 +1,9 @@
 const meals = document.getElementById("meals");
 // document.getElementById('meals');
-// document
+const favoriteContainer = document.getElementById("fav-meals")
 
 getRandomMeal();
+fetchFavMeals();
 
 async function getRandomMeal()
 {
@@ -16,7 +17,11 @@ async function getRandomMeal()
 
 async function getMealById(id)
 {
-    const meal = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id);
+    const resp = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id);
+    const respData = await resp.json();
+    const meal = respData.meals[0];
+
+    return meal;
 }
 
 async function getMealBySearch(term)
@@ -58,29 +63,72 @@ function addMeal(mealData, random = false)
     const btn = meal.querySelector('.meal-body .fav-btn');
     btn.addEventListener('click', () => {
         // alert("hello");
-        btn.target.classList.toggle('activ');
+        if(btn.classList.contains('active'))
+        {
+            removeMealLS(mealData.idMeal);
+            btn.classList.toggle('active')
+        }
+        else
+        {
+            addMealLS(mealData.idMeal);
+            btn.classList.add('active');
+        }
     });
 
     meals.appendChild(meal);
 }
 
-function addMealToLS(mealId)
+function addMealLS(mealId)
 {
     
-    const mealIds = getMealsFromLS();
+    const mealIds = getMealsLS();
 
     localStorage.setItem('mealIds', JSON.stringify([...mealIds, mealId]));
 }
 
-function removeMealFromLS()
+function removeMealLS(mealId)
 {
-    
+    const mealIds = getMealsLS();
+
+    localStorage.setItem('mealIds', JSON.stringify(mealIds.filter(id => id !== mealId)));
+
 }
 
-function getMealsFromLS()
+function getMealsLS()
 {
     
     const mealIds = JSON.parse(localStorage.getItem('mealIds'));
 
-    return mealIds;
+    return mealIds === null ? [] : mealIds;
+}
+
+async function fetchFavMeals()
+{
+    const mealIds = getMealsLS();
+
+    const meals = [];
+
+    for(let i = 0; i < mealIds.length; i++)
+    {
+        const mealId = mealIds[i];
+        meal = await getMealById(mealId);
+        
+        addMealFav(meal);
+    }
+}
+
+function addMealFav(mealData)
+{
+    const favMeal = document.createElement('li');
+    
+    favMeal.innerHTML = `
+            <img 
+                src="${mealData.strMealThumb}" 
+                alt="${mealData.strMeal}"
+            >
+            <span>${mealData.strMeal}</span>
+    `;
+
+
+    favoriteContainer.appendChild(favMeal);
 }

@@ -19,3 +19,11 @@ body
     height: 400px;
     width: 400px;
 }
+
+.notes .tools 
+{
+    background-color: #9ec862;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}

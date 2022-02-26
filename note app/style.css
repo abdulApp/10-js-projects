@@ -20,13 +20,14 @@ body
     border-radius: 3px;
     border: 0;
     color: white;
+    cursor: pointer;
     padding: 0.5rem 1rem;
     position: fixed;
     top: 1rem;
     right: 1rem;
 }
 
-.notes
+.note
 {
     background-color: #fff;
     margin: 20px;
@@ -34,7 +35,7 @@ body
     width: 400px;
 }
 
-.notes .tools 
+.note .tools 
 {
     background-color: #9ec862;
     display: flex;
@@ -42,7 +43,7 @@ body
     padding: 0.5rem;
 }
 
-.notes .tools button
+.note .tools button
 {
     background-color: transparent;
     border: none;
@@ -52,7 +53,7 @@ body
 
 }
 
-.notes .main 
+.note .main 
 {
     background-color: #fff;
     overflow: hidden;
@@ -60,7 +61,7 @@ body
     width: 100%;
 }
 
-.notes textarea
+.note textarea
 {
     outline: none;
     font-family: inherit;
@@ -70,7 +71,7 @@ body
     width: 100%;
 }
 
-.notes .hidden 
+.note .hidden 
 {
     display: none;
 }

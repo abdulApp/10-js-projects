@@ -26,6 +26,8 @@ form
 
 .input 
 {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-size: 2rem;
     padding: 1rem 2rem;
     display: block;
@@ -35,4 +37,26 @@ form
 .input::placeholder
 {
     color: #b5b5b5;
+}
+
+.todos
+{
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.todos li 
+{
+    border-top: 1px solid #e5e5e5;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+
+.todos li.completed
+{
+    text-decoration: line-through;
 }

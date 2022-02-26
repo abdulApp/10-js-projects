@@ -1,5 +1,4 @@
-const mealsEL = document.getElementById("meals");
-// document.getElementById('meals');
+const mealsEl = document.getElementById("meals");
 const favoriteContainer = document.getElementById("fav-meals");
 const mealPopup = document.getElementById("meal-popup");
 const mealInfoEl = document.getElementById("meal-info");
@@ -91,7 +90,7 @@ function addMeal(mealData, random = false)
     meal.addEventListener('click', () => {
         showMealInfo(mealData);
     })
-    mealsEL.appendChild(meal);
+    mealsEl.appendChild(meal);
 }
 
 function addMealLS(mealId)
@@ -177,7 +176,7 @@ function showMealInfo(mealData)
 }
 
 searchBtn.addEventListener('click', async() => {
-    mealsEL.innerHTML = '';
+    mealsEl.innerHTML = '';
     const search = searchTerm.value;
     const meals = await getMealsBySearch(search);
 

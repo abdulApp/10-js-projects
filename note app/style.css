@@ -37,3 +37,19 @@ body
     margin-left: 0.5rem;
 
 }
+
+.notes .main 
+{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.notes textarea
+{
+    outline: none;
+    font-family: inherit;
+    border: none;
+    height: 100%;
+    width: 100%;
+}

@@ -14,5 +14,8 @@ body
 
 .notes
 {
-
+    background-color: #fff;
+    margin: 20px;
+    height: 400px;
+    width: 400px;
 }

@@ -4,6 +4,44 @@
 }
 
 body {
+    background-color: #a9aff7;
     font-family: "Poppins", sans-serif;
     margin: 0;
+}
+
+.movie
+{
+    background-color: #373b69;
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.movie img 
+{
+    display: inline-block;
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+}
+
+.movie-info
+{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    letter-spacing: 1px;
+}
+
+.movie-info h3 
+{
+    margin: 0;
+}
+
+.movie-info span
+{
+    background-color: #a9aff7;
+    border-radius: 3px;
+    padding: 0.25rem 0.5rem;
 }
